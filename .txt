@@ -1,0 +1,2 @@
+ionic g page pages/nome da pasta
+ionic g service services/nome da pasta/nome da pasta

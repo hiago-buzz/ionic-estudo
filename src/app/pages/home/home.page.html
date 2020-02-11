@@ -1,0 +1,50 @@
+<ion-header >
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Cars go.
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark"  class="ion-padding">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-subtitle>você ja tomou um coffee?</ion-card-subtitle>
+      <ion-card-title>Quero Café</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img src="../../assets/cafe.jpg" alt="xicara de café">
+      A origem do café no Brasil encontra-se no século XVIII. As primeiras mudas de café foram plantadas ainda pelos
+      idos
+      de 1720, na província do Pará. A pessoa que teria trazido as primeiras sementes do café para o Brasil foi
+      Francisco
+      de Melo Palheta, após viagem à Guiana Francesa.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-title>Contato</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>CEP</ion-label>
+      <ion-input  [(ngModel)]='dados.cep' type="text" placeholder="00000-000"></ion-input>
+
+      <ion-label>Endereço</ion-label>
+      <ion-input  type="text" placeholder="nome da rua"></ion-input>
+
+      <ion-label>Nº</ion-label>
+      <ion-input type="number" placeholder="000"></ion-input>
+
+      <ion-label>Bairro</ion-label>
+      <ion-input type="text" placeholder="nome do bairro"></ion-input>
+      <ion-button (click)='consultarCEP()'>Buscar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

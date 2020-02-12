@@ -13,9 +13,11 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/schematics-cli": "^0.900.1",
     "@angular/common": "~8.1.2",
     "@angular/core": "~8.1.2",
     "@angular/forms": "~8.1.2",
+    "@angular/http": "^7.2.16",
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentsService } from './../../services/index';
+import { Http } from '@angular/http';
 
 
 @Component({
@@ -9,15 +10,41 @@ import { ComponentsService } from './../../services/index';
 })
 
 export class HomePage {
+  
   dados = {
-    cep: ''
-  }
-  constructor(private components: ComponentsService) { 
-    // this.consultarCEP();
+    nome: ""
+  };
+   
+  baseURL: string = `https://swapi.co/api/people/?search=`;
+
+  public personagens: Array<any>;
+  public loading = '../../../assets/giphy.gif';
+
+  constructor( public components: ComponentsService, public http: Http) {
+    
   }
 
-  consultarCEP() {
-    console.log(this.dados.cep)
+  buscarPersonagem () {
+    this.components.openLoading();
+    this.http.get(this.baseURL + `${this.dados.nome}&format=json`).subscribe(
+      data => {
+        const obj = (data as any);
+        const obj_json = JSON.parse(obj._body);
+        if(obj_json.results == ""){
+          this.components.closeLoading();
+          alert('Personagem Não encontrado!')
+          this.personagens = obj_json.results;
+        }
+        else{
+          this.components.closeLoading();
+          this.personagens = obj_json.results;
+        }
+        
+      }, error => {
+        console.error(error)
+      }
+      
+    )
   }
 
 }

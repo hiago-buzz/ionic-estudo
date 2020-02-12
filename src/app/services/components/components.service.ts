@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { LoadingController, ToastController, AlertController, MenuController, Events } from '@ionic/angular';
 import { LoadingOptions } from '@ionic/core';
 
-
 @Injectable({
   providedIn: 'root'
 })

@@ -1,50 +1,36 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="dark">
-    <ion-buttons slot="start">
+    <ion-buttons slot="center">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Cars go.
+      Consulte um Personagem
+      <ion-icon color="warning" name="flash"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content color='dark'  class="ion-padding">
+  <img src="../../../assets/Star-Wars-Logo.png" alt="Logo">
 
-<ion-content color="dark"  class="ion-padding">
-  <ion-card color="light">
-    <ion-card-header>
-      <ion-card-subtitle>você ja tomou um coffee?</ion-card-subtitle>
-      <ion-card-title>Quero Café</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <img src="../../assets/cafe.jpg" alt="xicara de café">
-      A origem do café no Brasil encontra-se no século XVIII. As primeiras mudas de café foram plantadas ainda pelos
-      idos
-      de 1720, na província do Pará. A pessoa que teria trazido as primeiras sementes do café para o Brasil foi
-      Francisco
-      de Melo Palheta, após viagem à Guiana Francesa.
-    </ion-card-content>
+  <ion-card  class="ion-padding">
+    <ion-label color="light">Personagem:</ion-label>
+    <ion-input [(ngModel)]='dados.nome' type="text" placeholder="Insira o Nome"></ion-input>
+    <ion-button (click)='buscarPersonagem ()'>Buscar</ion-button>
   </ion-card>
 
-  <ion-card color="light">
-    <ion-card-header>
-      <ion-title>Contato</ion-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label>CEP</ion-label>
-      <ion-input  [(ngModel)]='dados.cep' type="text" placeholder="00000-000"></ion-input>
-
-      <ion-label>Endereço</ion-label>
-      <ion-input  type="text" placeholder="nome da rua"></ion-input>
-
-      <ion-label>Nº</ion-label>
-      <ion-input type="number" placeholder="000"></ion-input>
-
-      <ion-label>Bairro</ion-label>
-      <ion-input type="text" placeholder="nome do bairro"></ion-input>
-      <ion-button (click)='consultarCEP()'>Buscar</ion-button>
-    </ion-card-content>
+  <ion-card *ngFor='let Personagem of personagens'>
+    <ion-label color="light">Nome:</ion-label>
+    <ion-input color="light" value={{Personagem.name}} disabled></ion-input>
+    <ion-label color="light">Altura:</ion-label>
+    <ion-input color="light" value={{Personagem.height}} disabled></ion-input>
+    <ion-label color="light">Peso:</ion-label>
+    <ion-input color="light" value={{Personagem.mass}} disabled></ion-input>
+    <ion-label color="light">Cabelo:</ion-label>
+    <ion-input color="light" value={{Personagem.hair_color}} disabled></ion-input>
+    <ion-label color="light">Nascimento:</ion-label>
+    <ion-input color="light" value={{Personagem.birth_year}} disabled></ion-input>
+    <ion-label color="light">Genero:</ion-label>
+    <ion-input color="light" value={{Personagem.gender}} disabled></ion-input>
   </ion-card>
-
 
 </ion-content>
